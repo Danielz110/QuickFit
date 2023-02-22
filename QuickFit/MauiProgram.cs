@@ -1,5 +1,4 @@
-﻿using ZXing.Net.Maui;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 
 namespace QuickFit;
 
