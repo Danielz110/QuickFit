@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "opLa/7QmUOOzUk6RQbvRH4/WX7gPnjmVcdMnxoAmbN3ExGKMDxfHCuWZQHTBRzpRIycq+D31SBfBbYcdaNQvGQ==",
+  "dgSpecHash": "o9Glf+tJ3b0yt9fxX4t6A5/nNRSINu9mSrOJs9FQkQgZ5CTIYonFjfvTZTjkfjPUjWUeK2C+N52kWZenzFfJlw==",
   "success": true,
   "projectFilePath": "E:\\ProgramFiles\\Microsoft Visual Studio\\repos\\QuickFit\\QuickFit\\QuickFit.csproj",
   "expectedPackageFiles": [
@@ -107,6 +107,7 @@
     "C:\\Users\\danny\\.nuget\\packages\\xamarin.kotlinx.coroutines.core.jvm\\1.6.4.1\\xamarin.kotlinx.coroutines.core.jvm.1.6.4.1.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\zxing.net\\0.16.8\\zxing.net.0.16.8.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\zxing.net.maui\\0.3.0-preview.1\\zxing.net.maui.0.3.0-preview.1.nupkg.sha512",
+    "C:\\Users\\danny\\.nuget\\packages\\zxing.net.maui.controls\\0.3.0-preview.1\\zxing.net.maui.controls.0.3.0-preview.1.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.28\\microsoft.windows.sdk.net.ref.10.0.19041.28.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\7.0.3\\microsoft.aspnetcore.app.runtime.win-x64.7.0.3.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\7.0.3\\microsoft.windowsdesktop.app.runtime.win-x64.7.0.3.nupkg.sha512"

@@ -148,6 +148,10 @@
             "ZXing.Net.Maui": {
               "target": "Package",
               "version": "[0.3.0-preview.1, )"
+            },
+            "ZXing.Net.Maui.Controls": {
+              "target": "Package",
+              "version": "[0.3.0-preview.1, )"
             }
           },
           "imports": [
@@ -215,6 +219,10 @@
             "ZXing.Net.Maui": {
               "target": "Package",
               "version": "[0.3.0-preview.1, )"
+            },
+            "ZXing.Net.Maui.Controls": {
+              "target": "Package",
+              "version": "[0.3.0-preview.1, )"
             }
           },
           "imports": [
@@ -280,6 +288,10 @@
               "autoReferenced": true
             },
             "ZXing.Net.Maui": {
+              "target": "Package",
+              "version": "[0.3.0-preview.1, )"
+            },
+            "ZXing.Net.Maui.Controls": {
               "target": "Package",
               "version": "[0.3.0-preview.1, )"
             }
@@ -364,6 +376,10 @@
               "autoReferenced": true
             },
             "ZXing.Net.Maui": {
+              "target": "Package",
+              "version": "[0.3.0-preview.1, )"
+            },
+            "ZXing.Net.Maui.Controls": {
               "target": "Package",
               "version": "[0.3.0-preview.1, )"
             }
