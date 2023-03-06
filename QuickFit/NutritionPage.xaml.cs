@@ -6,12 +6,9 @@ public partial class NutritionPage : ContentPage
 	{
 		InitializeComponent();
 	}
-	private void CameraBarcodeReaderView_BarcodesDetected(object
-		sender, ZXing.Net.Maui.BarcodeDetectionEventArgs e)
+
+	private async void ScanButtonClick(object sender, EventArgs e)
 	{
-		Dispatcher.Dispatch(() =>
-		{
-			barcodeResult.Text = $"{e.Results[0].Value} {e.Results[0].Format}";
-		});
+		await Shell.Current.GoToAsync(nameof(ScanPage));
 	}
 }

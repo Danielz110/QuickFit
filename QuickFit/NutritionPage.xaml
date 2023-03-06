@@ -11,13 +11,7 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <zxing:CameraBarcodeReaderView 
-            x:Name="barcodeReader" 
-            WidthRequest="300"
-            HeightRequest="300"
-            IsDetecting="True" 
-            IsTorchOn="False" 
-            BarcodesDetected="CameraBarcodeReaderView_BarcodesDetected" />
+		<Button Text="Scan" Clicked="ScanButtonClick"></Button>
 
         <Label 
             x:Name="barcodeResult"
