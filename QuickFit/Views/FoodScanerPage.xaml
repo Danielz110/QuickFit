@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI" xmlns:comman="clr-namespace:QuickFit.Comman"
+             x:Class="QuickFit.Views.FoodScanerPage"
+             xmlns:fontIcon="clr-namespace:QuickFit.Helper"
+             NavigationPage.HasNavigationBar="False"
+             Title="FoodScanerPage">
+    <ScrollView HorizontalScrollBarVisibility="Never"
+                VerticalScrollBarVisibility="Never">
+    <VerticalStackLayout Spacing="20">
+        <StackLayout Padding="0"
+                     Spacing="30"
+                     Orientation="Horizontal">
+            <!--Back Button-->
+       <ImageButton HorizontalOptions="Start"
+                     Margin="30,15,0,0"
+                     Aspect="AspectFit"
+                     x:Name="Back_Button"
+                     Clicked="Back_Button_Clicked"
+                     BackgroundColor="Transparent">
+            <ImageButton.Source>
+                <FontImageSource FontFamily="Fontello"
+                                 Glyph="{x:Static
+                                 fontIcon:IconFont.Left }"
+                                 Color="{AppThemeBinding
+                                 Light={StaticResource TextLightColor},
+                                 Dark={StaticResource TextDarkColor}}"
+                                 Size="18"/>
+            </ImageButton.Source>
+        </ImageButton>
+        <Label Text="Scan Your Foods"
+               FontSize="18"
+               VerticalOptions="Center"
+               Margin="0,5,0,0"
+               Style="{StaticResource Heading}"/>
+        </StackLayout>
+        <StackLayout Margin="20,30,20,0">
+            <Frame Padding="0" Margin="0"
+                   IsClippedToBounds="True"
+                   CornerRadius="16">
+            <zxing:CameraBarcodeReaderView
+            BackgroundColor="Blue"
+            x:Name="cameraBarcodeReaderView"
+            IsDetecting="True"
+            CameraLocation="Rear"
+            IsTorchOn="True"
+            BarcodesDetected="cameraBarcodeReaderView_BarcodesDetected"/>
+            </Frame>
+        </StackLayout>
+        <StackLayout Margin="20,0,20,0">
+            <Frame HeightRequest="180"
+                   HasShadow="False"
+                   CornerRadius="16"
+                   BackgroundColor="{AppThemeBinding
+                   Light={StaticResource EntryLightColor},
+                   Dark={StaticResource EntryDarkColor}}">
+               <StackLayout Padding="0" Spacing="10" Orientation="Vertical">
+                         <Label HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FontSize="16"
+                           x:Name="text" Margin="10,0,10,0"
+                           VerticalTextAlignment="Start"
+                           HorizontalTextAlignment="Start"
+                           Style="{StaticResource Heading}">
+                    <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Barcode:"/>
+                                <Span Text="  "/>
+                                <Span x:Name="lblBarcode"/>
+                            </FormattedString>
+
+                        </Label.FormattedText>
+
+                    </Label>
+                        <Label HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FontSize="16"
+                           Text="Food Ingredient"
+                           Margin="10,0,10,0"
+                           VerticalTextAlignment="Start"
+                           HorizontalTextAlignment="Start"
+                           Style="{StaticResource Heading}"/>
+                        <Label HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           FontSize="14"
+                           x:Name="lblFoodIngredient"
+                           Margin="10,0,10,0"
+                           VerticalTextAlignment="Start"
+                           HorizontalTextAlignment="Start"
+                           Style="{StaticResource Heading}"/>
+                    </StackLayout>
+                  
+            </Frame>
+        </StackLayout>
+        <Button 
+                    Text="Save"
+                    x:Name="SaveWorkOutButton"
+                    VerticalOptions="End"
+                    Clicked="SaveWorkOutButton_Clicked"
+                    CornerRadius="16"
+                    Style="{StaticResource ButtonStyle}"
+                    Margin="20,0,20,0">
+                <Button.Shadow>
+                    <Shadow Brush="{StaticResource ButtonColorA}"
+                            Offset="1.0,0.01"
+                            Radius="5"
+                            Opacity="0.6"/>
+                </Button.Shadow>
+            </Button>
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

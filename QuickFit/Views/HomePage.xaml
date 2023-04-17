@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuickFit.Views.HomePage"
+             xmlns:fontIcon="clr-namespace:QuickFit.Helper"
+             NavigationPage.HasNavigationBar="False"
+             Style="{StaticResource PageBackgroundColor}"
+             Title="HomePage">
+    <ScrollView HorizontalScrollBarVisibility="Never"
+                VerticalScrollBarVisibility="Never">
+     <VerticalStackLayout IgnoreSafeArea="True"  Spacing="10">
+       <StackLayout
+                   
+                    Orientation="Horizontal"
+                    VerticalOptions="Start">
+            <!--Profile Image-->
+            <Image Margin="15,10,0,0"
+                   Aspect="AspectFill"
+                   HorizontalOptions="Start"
+                   HeightRequest="30"
+                   WidthRequest="30"
+                   Source="appicon.png">
+                <Image.Clip>
+                    <EllipseGeometry Center="15,15"
+                                     RadiusX="15"
+                                     RadiusY="15"/>
+                </Image.Clip>
+            </Image>
+            <!--User Name-->
+            <VerticalStackLayout
+                Margin="20,0,0,0"
+                Padding="0"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+            <Label Text="Wellcome Back!"
+                              Margin="0,10,0,0"
+                              Padding="0"
+                              TextColor="Gray"
+                              FontSize="12"/>
+                <Label x:Name="lblUserName"
+                              Margin="0,2,0,0"
+                              TextColor="{StaticResource TextColorStyle}"
+                              FontAttributes="Bold"
+                              FontSize="12"/>
+            </VerticalStackLayout>
+            <!--Icon -->
+            <ImageButton HeightRequest="20"
+                         Margin="0,0,20,0"
+                         HorizontalOptions="EndAndExpand"
+                         WidthRequest="20">
+                <ImageButton.Source>
+                    <FontImageSource
+                        FontFamily="Fontello"
+                        Glyph="{x:Static fontIcon:IconFont.Heart}"
+                        Color="{StaticResource ButtonColorA}"/>
+                </ImageButton.Source>
+
+            </ImageButton>
+        </StackLayout>
+        <Label Text="All Workouts"  Style="{StaticResource Heading}"
+               FontSize="20" HorizontalOptions="Start" Margin="50,20,0,0"/>
+        <CollectionView HeightRequest="200"
+                           VerticalOptions="FillAndExpand"
+                           VerticalScrollBarVisibility="Never"
+                           HorizontalScrollBarVisibility="Never"
+                           ItemsSource="{Binding Workouts,Mode=TwoWay}">
+               
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="20"/>
+                                      
+            </CollectionView.ItemsLayout>
+              <CollectionView.EmptyView>
+            <ContentView>
+                <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                    <Label Text="No results matched."
+                           Margin="10,25,10,10"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           Style="{StaticResource Heading}"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="Kindly start workout?"
+                           FontAttributes="Italic"
+                           FontSize="12"
+                           Style="{StaticResource Heading}"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </ContentView>
+        </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                 <DataTemplate>
+                        <Grid RowDefinitions="Auto">
+                            <Frame HeightRequest="180"
+                                   Grid.Row="0"
+                                   WidthRequest="330"
+                                   Margin="50,0,20,0"
+                                   CornerRadius="16"
+                                   HasShadow="False"
+                                   BackgroundColor="{AppThemeBinding
+                                   Light={StaticResource EntryLightColor},
+                                   Dark={StaticResource EntryDarkColor}}">
+                                
+                               <StackLayout Padding="0"
+                                             Spacing="50"
+                                             TranslationX="70"
+                                             VerticalOptions="Center"
+                                             Orientation="Horizontal">
+                                <StackLayout Spacing="40"
+                                                Padding="0"
+                                                HorizontalOptions="Center">
+                                    <Label Text="Workout Time:"
+                                           Style="{StaticResource Heading}" FontSize="14"/>
+                                    <Label Text="Workout Distance:"
+                                           Style="{StaticResource Heading}" FontSize="14"/>
+                                </StackLayout>
+                                <StackLayout Spacing="40"
+                                                Padding="0"
+                                                HorizontalOptions="Center">
+                                    <Label Text="{Binding WoroutTime,Mode=TwoWay}"
+                                           Style="{StaticResource Heading}" FontSize="14"/>
+                                    <Label Text="{Binding WorkoutDistance,Mode=TwoWay}"
+                                           Style="{StaticResource Heading}" FontSize="14"/>
+                                </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                            <Image HeightRequest="120"
+                                   WidthRequest="120"
+                                   Margin="15,0,0,0"
+                                   BackgroundColor="Transparent"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   Source="work_icon.png"
+                                   Aspect="AspectFill">
+                                <Image.Clip>
+                                    <EllipseGeometry Center="60,60"
+                                                     RadiusX="60"
+                                                     RadiusY="60"/>
+                                </Image.Clip>
+                            </Image>
+                        </Grid>
+                    </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Label Text="Breakfast" Style="{StaticResource Heading}"
+               FontSize="20" HorizontalOptions="Start" Margin="50,0,0,0"/>
+           <CollectionView HeightRequest="200"
+                           VerticalOptions="FillAndExpand"
+                           VerticalScrollBarVisibility="Never"
+                           HorizontalScrollBarVisibility="Never"
+                           ItemsSource="{Binding Breakfast,Mode=TwoWay}">
+              
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="20"/>
+                                      
+            </CollectionView.ItemsLayout>
+                 <CollectionView.EmptyView>
+            <ContentView>
+                <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                    <Label Text="No results matched."
+                           Margin="10,25,10,10"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           Style="{StaticResource Heading}"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="Kindly start workout?"
+                           FontAttributes="Italic"
+                           FontSize="12"
+                           Style="{StaticResource Heading}"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </ContentView>
+        </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                 <DataTemplate>
+                        <Grid RowDefinitions="Auto">
+                            <Frame HeightRequest="180"
+                                   Grid.Row="0"
+                                   WidthRequest="330"
+                                   Margin="50,0,20,0"
+                                   CornerRadius="16"
+                                   HasShadow="False"
+                                   BackgroundColor="{AppThemeBinding
+                                   Light={StaticResource EntryLightColor},
+                                   Dark={StaticResource EntryDarkColor}}">
+                                
+                               <StackLayout Padding="0"
+                                             Spacing="5"
+                                             Margin="100,0,0,0"
+                                             HorizontalOptions="CenterAndExpand"
+                                             VerticalOptions="Center"
+                                             Orientation="Vertical">
+                                    <Label Text="{Binding FoodTime,Mode=TwoWay}"
+                                           FontSize="25"
+                                        Style="{StaticResource Heading}"/>
+                                    <Label Text="{Binding FoodInfo,Mode=TwoWay}"
+                                           FontSize="16"
+                                           MaxLines="3"
+
+                                           LineBreakMode="CharacterWrap"
+                                           HorizontalTextAlignment="Center"
+                                           Margin="5,0,5,0"
+                                           HorizontalOptions="Center"
+                                        Style="{StaticResource Heading}"/>
+                                </StackLayout>
+
+                            </Frame>
+                            <Image HeightRequest="120"
+                                   WidthRequest="120"
+                                   Margin="15,0,0,0"
+                                   BackgroundColor="Transparent"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   Source="{Binding ImageUrl}"
+                                   Aspect="AspectFill">
+                                <Image.Clip>
+                                    <EllipseGeometry Center="60,60"
+                                                     RadiusX="60"
+                                                     RadiusY="60"/>
+                                </Image.Clip>
+                            </Image>
+                        </Grid>
+                    </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Label Text="Lunch" Style="{StaticResource Heading}"
+               FontSize="20" HorizontalOptions="Start" Margin="50,0,0,0"/>
+        <CollectionView HeightRequest="200"
+                           VerticalOptions="FillAndExpand"
+                           VerticalScrollBarVisibility="Never"
+                           HorizontalScrollBarVisibility="Never"
+                           ItemsSource="{Binding Lunch,Mode=TwoWay}">
+                 
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="20"/>
+            </CollectionView.ItemsLayout>
+                 <CollectionView.EmptyView>
+            <ContentView>
+                <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                    <Label Text="No results matched."
+                           Margin="10,25,10,10"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           Style="{StaticResource Heading}"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="Kindly start workout?"
+                           FontAttributes="Italic"
+                           FontSize="12"
+                           Style="{StaticResource Heading}"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </ContentView>
+        </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                 <DataTemplate>
+                        <Grid RowDefinitions="Auto">
+                            <Frame HeightRequest="180"
+                                   Grid.Row="0"
+                                   WidthRequest="330"
+                                   Margin="50,0,20,0"
+                                   CornerRadius="16"
+                                   HasShadow="False"
+                                   BackgroundColor="{AppThemeBinding
+                                   Light={StaticResource EntryLightColor},
+                                   Dark={StaticResource EntryDarkColor}}">
+                                <StackLayout Padding="0"
+                                             Spacing="5"
+                                             Margin="100,0,0,0"
+                                             HorizontalOptions="CenterAndExpand"
+                                             VerticalOptions="Center"
+                                             Orientation="Vertical">
+                                    <Label Text="{Binding FoodTime,Mode=TwoWay}"
+                                           FontSize="25"
+                                        Style="{StaticResource Heading}"/>
+                                    <Label Text="{Binding FoodInfo,Mode=TwoWay}"
+                                           FontSize="16"
+                                           MaxLines="3"
+                                           LineBreakMode="CharacterWrap"
+                                           HorizontalTextAlignment="Center"
+                                           Margin="5,0,5,0"
+                                           HorizontalOptions="Center"
+                                        Style="{StaticResource Heading}"/>
+                                </StackLayout>
+                            </Frame>
+                            <Image HeightRequest="120"
+                                   WidthRequest="120"
+                                   Margin="15,0,0,0"
+                                   BackgroundColor="Transparent"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   Source="{Binding ImageUrl}"
+                                   Aspect="AspectFill">
+                                <Image.Clip>
+                                    <EllipseGeometry Center="60,60"
+                                                     RadiusX="60"
+                                                     RadiusY="60"/>
+                                </Image.Clip>
+                            </Image>
+                        </Grid>
+                    </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Label Text="Dinner" Style="{StaticResource Heading}"
+               FontSize="20" HorizontalOptions="Start" Margin="50,0,0,0"/>
+         <CollectionView HeightRequest="200"
+                           VerticalOptions="FillAndExpand"
+                           VerticalScrollBarVisibility="Never"
+                           HorizontalScrollBarVisibility="Never"
+                           ItemsSource="{Binding Dinner}">
+               
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal"
+                                   ItemSpacing="20"/>
+            </CollectionView.ItemsLayout>
+                 <CollectionView.EmptyView>
+            <ContentView>
+                <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                    <Label Text="No results matched."
+                           Margin="10,25,10,10"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           Style="{StaticResource Heading}"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="Kindly start workout?"
+                           FontAttributes="Italic"
+                           FontSize="12"
+                           Style="{StaticResource Heading}"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </ContentView>
+        </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                 <DataTemplate>
+                        <Grid RowDefinitions="Auto">
+                            <Frame HeightRequest="180"
+                                   Grid.Row="0"
+                                   WidthRequest="330"
+                                   Margin="50,0,20,0"
+                                   CornerRadius="16"
+                                   HasShadow="False"
+                                   BackgroundColor="{AppThemeBinding
+                                   Light={StaticResource EntryLightColor},
+                                   Dark={StaticResource EntryDarkColor}}">
+                              <StackLayout Padding="0"
+                                             Spacing="5"
+                                             Margin="100,0,0,0"
+                                             HorizontalOptions="CenterAndExpand"
+                                             VerticalOptions="Center"
+                                             Orientation="Vertical">
+                                    <Label Text="{Binding FoodTime,Mode=TwoWay}"
+                                           FontSize="25"
+                                        Style="{StaticResource Heading}"/>
+                                    <Label Text="{Binding FoodInfo,Mode=TwoWay}"
+                                           FontSize="16"
+                                           MaxLines="3"
+                                           LineBreakMode="CharacterWrap"
+                                           HorizontalTextAlignment="Center"
+                                           Margin="5,0,5,0"
+                                           HorizontalOptions="Center"
+                                        Style="{StaticResource Heading}"/>
+                                </StackLayout>
+                            </Frame>
+                            <Image HeightRequest="120"
+                                   WidthRequest="120"
+                                   Margin="15,0,0,0"
+                                   BackgroundColor="Transparent"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   Source="{Binding ImageUrl}"
+                                   Aspect="AspectFill">
+                                <Image.Clip>
+                                    <EllipseGeometry Center="60,60"
+                                                     RadiusX="60"
+                                                     RadiusY="60"/>
+                                </Image.Clip>
+                            </Image>
+                        </Grid>
+                    </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

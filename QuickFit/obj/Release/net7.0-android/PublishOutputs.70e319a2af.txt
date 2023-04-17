@@ -1,0 +1,3 @@
+/Users/ciaranovakovic/Desktop/Project/Released/com.companyname.quickfit-Signed.aab
+/Users/ciaranovakovic/Desktop/Project/Released/com.companyname.quickfit.aab
+/Users/ciaranovakovic/Desktop/Project/Released/com.companyname.quickfit-Signed.apk

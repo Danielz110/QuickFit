@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuickFit.Views.SignInPage"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="False"
+             xmlns:fontIocn="clr-namespace:QuickFit.Helper"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             xmlns:comman="clr-namespace:QuickFit.Comman"
+             xmlns:validation="clr-namespace:InputKit.Shared.Validations;assembly=InputKit.Maui"
+             xmlns:input="clr-namespace:InputKit.Shared.Controls;assembly=InputKit.Maui"
+             NavigationPage.HasNavigationBar="False"
+             Style="{StaticResource PageBackgroundColor}"
+             Title="SignInPage">
+   <ContentPage.Resources>
+
+    </ContentPage.Resources>
+    <!--ScrollView-->
+    <ScrollView>
+    <VerticalStackLayout
+        Spacing="30"
+        IgnoreSafeArea="False">
+        <!--Back Button-->
+        <comman:BackButton x:Name="Back_Button"/>
+            <!--Logo Image-->
+       <StackLayout HeightRequest="100"
+                    WidthRequest="100"
+                    HorizontalOptions="Center">
+                <Image HeightRequest="100"
+             WidthRequest="100"
+             Aspect="AspectFill"
+             
+             Source="appicon.png"
+             HorizontalOptions="Center">
+            </Image>
+            <StackLayout.Clip>
+                    <EllipseGeometry
+                        Center="50,50"
+                        RadiusX="50"
+                        RadiusY="50"/>
+
+                </StackLayout.Clip>
+            </StackLayout>
+            <!--Heading-->
+        <Label Style="{StaticResource Heading}"
+               Text="Log In To Your Account"/>
+            <!--Input FormView-->
+             <input:FormView Spacing="25"
+                             SubmitCommand="{Binding SinInButtonCommand}">
+            <!--TextFields-->
+        <material:TextField Title="Email"
+                            Text="{Binding Email,Mode=TwoWay}"
+                            Style="{StaticResource EntryStyle}"
+                            Icon="{FontImageSource
+                            FontFamily=Fontello,Glyph={x:Static
+                            fontIocn:IconFont.Mail}}">
+                    <validation:RegexValidation
+                        Pattern="{x:Static input:AdvancedEntry.REGEX_EMAIL}"
+                        Message="Invalid Email Address"
+                        />
+                    <validation:RequiredValidation Message="Email is required."/>
+                </material:TextField>
+        <material:TextField Title="Password"
+                            Text="{Binding Password,Mode=TwoWay}"
+                            IsPassword="True"
+                            Style="{StaticResource EntryStyle}"
+                            Icon="{FontImageSource
+                            FontFamily=Fontello,Glyph={x:Static
+                            fontIocn:IconFont.LockFilled}}">
+                <validation:RequiredValidation Message="Password is required"/>
+                    <validation:RegexValidation
+                        Pattern="{x:Static input:AdvancedEntry.REGEX_PASSWORD}"
+                        Message="Invalid Password Address."
+                        />
+            </material:TextField>
+                <StackLayout Orientation="Horizontal"  Margin="30,0,30,0">
+                <!--Remmember Me CheckBox-->
+                <input:CheckBox TextColor="{AppThemeBinding
+                                Light={StaticResource TextLightColor},
+                                Dark={StaticResource TextDarkColor}}"
+                                BorderColor="{StaticResource ButtonColorB}"
+                                IconColor="White"
+                                Type="Material"
+                                BoxSizeRequest="20"
+                                Color="{StaticResource ButtonColorA}"
+                                TextFontSize="12"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"
+                                FontFamily="OpenSansRegular"
+                                Text="Remember me"/>
+                     <!--Forget Password-->
+                   <Label Style="{StaticResource HaveAccountTextStyle}"
+                           Text="Forgot Password?"
+                           HorizontalOptions="EndAndExpand"
+                           VerticalOptions="Center"
+                           Margin="0,0,5,4"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource ButtonColorA}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                                  Command="{Binding ResetPasswordCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                <!--Sign In Button-->
+            <Button 
+                    Text="Sign In"
+                    input:FormView.IsSubmitButton="True"
+                    x:Name="SignInButton"
+                    VerticalOptions="End"
+                    Style="{StaticResource ButtonStyle}"
+                    Margin="30,0,30,0">
+                <Button.Shadow>
+                    <Shadow Brush="{StaticResource ButtonColorA}"
+                            Offset="1.0,0.01"
+                            Radius="5"
+                            Opacity="0.6"/>
+                </Button.Shadow>
+            </Button>
+                <ActivityIndicator HeightRequest="20"
+                       WidthRequest="20"
+                       TranslationY="-60"
+                       TranslationX="-100"
+                       IsVisible="{Binding IsLoading,Mode=TwoWay}"
+                       BackgroundColor="Transparent"
+                       Color="White"
+                       HorizontalOptions="Center"
+                       IsRunning="{Binding IsLoading, Mode=TwoWay}"/>
+                </input:FormView>
+            <!--Have an account lable-->
+            <Label Padding="0" Margin="10" Style="{StaticResource HaveAccountTextStyle}">
+                <Label.FormattedText>
+                    <FormattedString>
+                         <Span 
+                               Text="Already have an acoount?"/>
+                         <Span Text=" Sign Up"
+                               FontAttributes="Bold"
+                               FontSize="12"
+                               TextColor="{StaticResource ButtonColorA}">
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding SingUpButtonComman}"/>
+                            </Label.GestureRecognizers>
+
+            </Label>
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

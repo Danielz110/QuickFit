@@ -1,0 +1,3 @@
+/Users/admin/Desktop/APK/com.companyname.quickfit-Signed.aab
+/Users/admin/Desktop/APK/com.companyname.quickfit.aab
+/Users/admin/Desktop/APK/com.companyname.quickfit-Signed.apk

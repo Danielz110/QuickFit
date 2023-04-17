@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="QuickFit.Views.ApplicationTabbsPage"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="True"
+             xmlns:views="clr-namespace:QuickFit.Views"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{AppThemeBinding
+             Light={StaticResource Primary},
+             Dark={StaticResource Secondary}}"
+             BarBackgroundColor="{AppThemeBinding
+             Light={StaticResource Primary},
+             Dark={StaticResource Secondary}}"
+             BarBackground="{AppThemeBinding
+             Light={StaticResource Primary},
+             Dark={StaticResource Secondary}}"
+             xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+             SelectedTabColor="{StaticResource ButtonColorA}"
+             BarTextColor="Silver"
+             android:TabbedPage.ToolbarPlacement="Bottom"
+             android:TabbedPage.IsSmoothScrollEnabled="False"
+             android:TabbedPage.IsSwipePagingEnabled="False"
+             android:TabbedPage.OffscreenPageLimit="5"
+             UnselectedTabColor="Silver"
+             Title="ApplicationTabbsPage">
+     <!--All Tabbs-->
+    <views:HomePage Title="Home" IconImageSource="home_icon.png"/>
+    <views:MainPage Title="Workout" IconImageSource="start_icon.png"/>
+    <views:SelectFoodPage Title="Food" IconImageSource="food_icon.png"/>
+   
+</TabbedPage>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QuickFit</name>
+    </assembly>
+    <members>
+        <member name="M:QuickFit.ViewsModels.SignInViewModel.SignIn">
+            <summary>
+            This function will check user sign in proccess.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
