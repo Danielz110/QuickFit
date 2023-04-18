@@ -1,1 +1,1 @@
-# QuickFit
+# QuickFit - Lifestyle & Health Tracking App
